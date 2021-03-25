@@ -1,0 +1,201 @@
+/*font*/
+@font-face {
+	font-family: 'BebasNeue';
+	src: url( ../font/BebasNeue-Regular.woff ) format('woff');
+}
+
+
+/*Style Utama*/
+body{
+	background-color: #20202A;
+	font: 18px/36px 'BebasNeue', 'Arial Narrow', arial, sans-serif;
+}
+h1{
+	color: #eaeaea;
+	font-size: 80px;
+	margin: 50px 0;
+	text-align: center;
+	text-shadow: 1px 1px 10px #000;
+}
+.thanks{
+	color: #888;
+	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+	font-size: 13px;
+	text-align: center;
+	margin-top: -40px;
+	margin-bottom: 40px;
+}
+
+.container{
+	width: 600px;
+	background-color: #20202A;
+	margin: auto;
+	padding: 30px;
+	box-shadow: 0 5px 20px 3px rgba(0,0,0,.7);
+	border-radius: 5px;
+}
+
+.gallery li{
+	width: 120px;
+	height: 120px;
+	border-radius: 5%;
+	/*border: 2px solid #eaeaea;*/
+	float: left;
+	position: relative;s
+}
+
+.gallery li.robin, li.joker{
+	margin-left: 120px;
+}
+
+.gallery li a img{
+	border-radius: 5%;
+
+}
+
+.gallery li span{
+	position: absolute;
+	top: 0;
+	display: block;
+	width: 120px;
+	height: 120px;
+	background-color: rgba(200,200,200,.5);
+	border-radius: 5%;
+	text-align: center;
+	line-height: 120px;
+	color: #333;
+	text-shadow: 1px 1px 1px #ddd;
+	opacity: 0;
+	transform: scale(0);
+	transition: .3s;
+}
+.gallery li a:hover span{
+	opacity: 1;
+	transform: scale(1);
+}
+
+.clear{
+	clear: both;
+}
+
+
+/*LightBox*/
+
+.overlay{
+	width: 0;
+	height: 0;
+	overflow: hidden;
+	position: fixed;
+	background: rgb(0,0,0,0);
+	z-index: 9999;
+	transition: .7s;
+	text-align: center;
+	padding: 100px 0;
+}
+
+.overlay:target{
+	width: auto;
+	height: auto;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background: rgb(0,0,0,.8);
+}
+
+.overlay img{
+	max-height: 100%;
+	box-shadow: 2px 2px 7px rgba(0,0,0,.5);
+	border: 1px solid #888;
+}
+.overlay:target img{
+	animation: zoomDanFade 1s;
+}
+
+
+.overlay .close{
+	position: absolute;
+	top: 50px;
+	left: 50%;
+	margin-left: -20px;
+	color: #fff;
+	text-decoration: none;
+	background-color: black;
+	border: 1px solid white;
+	line-height: 14px;
+	padding: 5px;
+	opacity: 0;
+}
+.overlay:target .close{
+	animation: slideDownFade .5s .5s forwards;
+}
+.overlay:target .next{
+	animation: fade .5s .5s forwards;
+}
+.overlay:target .prev{
+	animation: fade .5s .5s forwards;
+}
+
+/*Navigasi*/
+.next, .prev{
+	width: 57px;
+	height: 106px;
+	position: absolute;
+	background-image: url(../img/next.png);
+	background-size: cover;
+	top: 40%;
+	margin-left: 100px;
+	opacity: 0;
+}
+
+.prev{
+	background-image: url(../img/prev.png);
+	margin-left: -150px;
+}
+
+.footer{
+	text-align: center;
+	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+	font-size: 13px;
+	width: 600px;
+	color: #888;
+	background-color: #20202A;
+	margin: 10px auto;
+	padding: 0 30px;
+	box-shadow: 0 5px 20px 3px rgba(0,0,0,.7);
+	border-radius: 5px;
+}
+
+/*Animasi*/
+@keyframes fade{
+	0%{
+		opacity: 0;
+	}
+	100%{
+		opacity: 1;
+	}
+
+}
+
+@keyframes zoomDanFade{
+	0%{
+		transform: scale(0);
+		opacity: 0;
+	}
+
+	100%{
+		transform: scale(1);
+		opacity: 1;
+	}
+}
+
+@keyframes slideDownFade{
+	0%{
+		opacity: 0;
+		margin-top: -20px;
+	}
+	100%{
+		opacity: 1;
+		margin-top: 0;
+	}
+}
